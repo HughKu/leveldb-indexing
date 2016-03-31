@@ -16,32 +16,36 @@ int main(int argc, char** argv){
     std::cerr << s.ToString() << std::endl;
   }
   
-  // open word synset file
-  std::string file_path = argv[1]
-  
+  //TODO: open word synset file
+  std::string file_path = argv[1];
+  std::cout << file_path << std::endl;
 
   // Write the key-value pair
-  db->Put(leveldb::WriteOptions(), key_write, value_write);
+  //db->Put(leveldb::WriteOptions(), key_write, value_write);
 
   // Read the value by 'key'
-  std::string key_read = "this is key";
-  std::string value_read;
+  //std::string key_read = "this is key";
+  //std::string value_read;
 
+  /*
   s = db->Get(leveldb::ReadOptions(), key_read, &value_read);
   if(s.ok()){
     std::cout << s.ToString() << std::endl;
     std::cout << "The value to '" << key_read << "'is " << value_read << std::endl;
   }
+  */
 
+  /*
   // iterate over the each item in the database
   leveldb::Iterator* iter = db->NewIterator( leveldb::ReadOptions() ); 
   for(iter->SeekToFirst(); iter->Valid(); iter->Next()){
     std::cout << iter->key().ToString() << ": " << iter->value().ToString() << std::endl; 
   }
+  */
 
 
   // release the memory
-  delete iter;
+  //delete iter;
   delete db;
   
   return 0;
