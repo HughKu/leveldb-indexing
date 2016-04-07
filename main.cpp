@@ -52,7 +52,6 @@ int main(int argc, char** argv){
   }
   db->Write(leveldb::WriteOptions(), &batch);
 
-
   
   /* Read the value by 'key' */
   std::string key_read = "400";
@@ -63,16 +62,14 @@ int main(int argc, char** argv){
     std::cout << s.ToString() << std::endl;
     std::cout << "The value to '" << key_read << "'is " << value_read << std::endl;
   }  
-
   
-  /* iterate over the each item in the database
+  /* iterate over the each item in the database */
   leveldb::Iterator* iter = db->NewIterator( leveldb::ReadOptions() ); 
   for(iter->SeekToFirst(); iter->Valid(); iter->Next()){
     std::cout << iter->key().ToString() << ": " << iter->value().ToString() << std::endl; 
   }
   delete iter;
-  */
-
+  
 
   /* release the memory */
   delete db;
